@@ -1,0 +1,94 @@
+<!-- HTML Document Declaration -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags for character set and viewport settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to an external stylesheet (style.css) -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Link to a favicon (website icon) -->
+    <link rel="icon" href="https://th.bing.com/th?id=OIP.O6ajO3L7kP4POgXUcG2m2QHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" type="image/png">
+
+    <!-- Title of the webpage -->
+    <title>Age Calculator</title>
+</head>
+
+<body>
+    <!-- Form for user input -->
+    <form action="" method="get">
+        <!-- Heading -->
+        <h1>Age Calculator</h1>
+
+        <!-- Placeholder for displaying age calculation result -->
+        <div id="ageP" style="text-align: center; border: 5px solid yellow;"></div>
+
+        <!-- Input fields for day, month, and year -->
+        <div class="block">
+            <p class="title">today </p>
+            <input type="number" id="day" placeholder="Day" required autofocus>
+        </div>
+
+        <div class="block">
+            <p class="title">Month</p>
+            <input type="number" id="month" required placeholder="Month">
+        </div>
+
+        <div class="block">
+            <p class="title">Year</p>
+            <input type="number" id="year" required placeholder="Year">
+        </div>
+
+        <!-- Button to trigger age calculation -->
+        <button type="button" onclick="calculateAge()">Calculate</button>
+    </form>
+
+    <!-- JavaScript code for age calculation -->
+    <script>
+        function calculateAge() {
+            // Retrieving values from input fields
+            let day = parseInt(document.getElementById('day').value);
+            let month = parseInt(document.getElementById('month').value);
+            let year = parseInt(document.getElementById('year').value);
+
+            // Getting the current date
+            let date = new Date();
+            let currentDay = date.getDate();
+            let currentMonth = date.getMonth() + 1;
+            let currentYear = date.getFullYear();
+
+            // Calculating age components
+            let Day = currentDay - day;
+            let Month = currentMonth - month;
+            let Year = currentYear - year;
+
+            // Validating input values
+            if (isNaN(day) || isNaN(month) || isNaN(year) || day < 0 || day > 31 || month < 0 || month > 12 || year < currentYear - 200 || year > currentYear) {
+                document.getElementById("ageP").style.backgroundColor = "rgb(217, 248, 44)"
+                document.getElementById("ageP").innerHTML = "Please fill in all fields with valid numbers.";
+                return;
+            }
+
+            // Adjusting age components if necessary
+            if (Month < 0 || Month == currentMonth) {
+                Year--;
+                Month = Month + 12;
+            }
+            if (Day < 0) {
+                Month--;
+                Day = Day + 30;
+            }
+
+            // Constructing age message
+            let ageMessage = "Your age is " + Year + " years, " + Month + " months, and " + Day + " days.";
+            // Show user age
+            document.getElementById("ageP").style.backgroundColor = "rgb(217, 248, 44)"
+            document.getElementById("ageP").innerHTML = ageMessage;
+        }
+    </script>
+</body>
+
+</html>

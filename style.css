@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+h1 {
+    text-align: center;
+    color: rgb(217, 248, 44);
+}
+
+.block input{
+    width: 100px;
+    outline: none;
+    padding: 10px;
+    border: double 1px rgb(217, 248, 44);
+    border-radius: 4px;
+}
+
+input:focus{
+    border: 1px solid rgb(171, 199, 14);
+}
+
+body {
+    text-align: center;
+}
+
+.block{
+    text-align: center;
+    width: 135px;
+    padding: 5px 20px;
+    margin-left: 20px;
+    display: inline-block;
+}
+#ageP{
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    
+}
+.title {
+    text-align: center;
+    font-size: 25px;
+    letter-spacing: 0.5px;
+    color: #222;
+}
+
+button{
+    padding: 10px;
+    border: none;
+    background-color: rgb(217, 248, 44);
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 10%;
+    font-size: 25px;
+}
+
+button:hover{
+    transition: 0.6s;
+    background-color: rgb(171, 199, 14);
+    border: none;
+
+}
+
+
+.age{
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+
+}
